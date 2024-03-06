@@ -25,7 +25,7 @@ points.push( new THREE.Vector3( 0, 0, 0) );
 points.push( new THREE.Vector3( 10, 0, 0) );
 
 const pointGeomtry = new THREE.BufferGeometry().setFromPoints( points );
-const line = new THREE.Line( geomtry, material );
+const line = new THREE.Line( geometry, material );
 
 camera.position.z = 5;
 
