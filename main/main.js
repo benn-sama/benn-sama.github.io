@@ -8,9 +8,19 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
 const geometry = new THREE.BoxGeometry( 1, 1, 1 );
-const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-const cube = new THREE.Mesh( geometry, material );
+const cubeMaterial = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+const cube = new THREE.Mesh( geometry, cubeMaterial );
 scene.add( cube );
+
+const lineMaterial = new THREE.LineBasicMaterial( { color: 0x0000f} );
+
+const points = [];
+points.push ( THREE.Vector3( -10, 0, 0) );
+points.push( new THREE.Vector3( 0, 0, 0) );
+points.push( new THREE.Vector3( 10, 0, 0) );
+
+const pointGeomtry = new THREE.BufferGeometry().setFromPoints( points );
+const line = new THREE.Line( geomtry, material );
 
 camera.position.z = 5;
 
@@ -22,5 +32,8 @@ function animate() {
 
 	renderer.render( scene, camera );
 }
+
+scene.add( line );
+renderer.renderer( scene, camera );
 
 animate();
